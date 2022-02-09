@@ -1,0 +1,51 @@
+nav {
+    z-index: 5;
+}
+#home_section {
+    position: absolute;
+    width: calc(100% - 300px);
+    right: 0;
+    top: 56px;
+}
+#home_section .img {
+    width: 100vw;
+    height: 80vh;
+    margin: auto;
+    object-fit: cover;
+}
+#home_section .car_container{
+    min-width: 450px;
+    min-height: 200px;
+    background-color: #000000b8;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 8px;
+}
+#home_section h2 {
+    font-size: 40px;
+}
+
+/* ----------------------------------- side bar -------------------------- */
+
+#sidebar {
+    width: 300px;
+    background-color: #ddd;
+    position: fixed;
+    top: 56px;
+    height: 100vh;
+    padding: 14px;  
+}
+#sidebar .funding_span{
+    color: red;
+}
+#sidebar  h2 {
+    color: blue; 
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+}
+#sidebar h5 {
+    cursor: pointer;
+    padding: 5px;
+}
