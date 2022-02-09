@@ -1,0 +1,90 @@
+{% extends 'base_page.html' %}
+{% load static %}
+
+{% block 'title' %} Home {% endblock %}
+
+{% block 'content' %}
+
+    {% block sidebar %}
+        <p>test</p>
+        <p>test 2</p>
+    {% endblock sidebar %}
+
+    <section id="home_section">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1000">
+                    <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
+                    <div class="car_container">
+                        <div class="carousel-caption d-none d-md-block text-light">
+                            <h2>Crowd Funding</h2>
+                            <p>Help others to make their lives better </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item active" data-bs-interval="1000">
+                    <img src="{% static 'images/s3.jpg' %}"  class="d-block img" alt="photo">
+                    <div class="car_container">
+                        <div class="carousel-caption d-none d-md-block text-light">
+                            <h2>Crowd Funding</h2>
+                            <p>Help others to make their lives better </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item active" data-bs-interval="1000">
+                    <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
+                    <div class="car_container">
+                        <div class="carousel-caption d-none d-md-block text-light">
+                            <h2>Crowd Funding</h2>
+                            <p>Help others to make their lives better </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon " aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+        <div class="d-flex m-5">
+            <div class="card m-2 shadow " style="width: 18rem;">
+                <img src="{% static 'images/s1.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Project title</h5>
+                    <p class="card-text"> <b>description of project</b><br/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary m-auto">Show Project</a>
+                </div>
+            </div>
+
+            <div class="card m-2 shadow " style="width: 18rem;">
+                <img src="{% static 'images/s2.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Project title</h5>
+                    <p class="card-text"> <b>description of project</b><br/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary m-auto">Show Project</a>
+                </div>
+            </div>
+            
+            <div class="card m-2 shadow " style="width: 18rem;">
+                <img src="{% static 'images/s3.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Project title</h5>
+                    <p class="card-text"> <b>description of project</b><br/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary m-auto">Show Project</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+    
