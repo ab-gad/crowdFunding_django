@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home',
     'users',
-    'campaign.apps.CampaignConfig'
+    'campaign.apps.CampaignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authen.apps.AuthenConfig'
-    'crispy_forms',
+    #'crispy_forms',
 ]
 
 MIDDLEWARE = [
