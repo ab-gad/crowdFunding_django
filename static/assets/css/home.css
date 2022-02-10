@@ -29,6 +29,7 @@ nav {
 #home_section h2 {
     font-size: 40px;
 }
+
 #home_section .banner {
     position: relative;
   }
@@ -39,7 +40,7 @@ nav {
     margin: 5px 0px;
     border-radius: 1rem;
 }
-
+  
 #home_section .btn1 {
     position: absolute;
     top: 70%;
@@ -57,6 +58,7 @@ nav {
     background-color: rgb(54, 50, 50);
     color: wheat;
 }
+  
 
 /* ----------------------------------- side bar -------------------------- */
 
