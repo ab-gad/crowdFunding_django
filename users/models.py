@@ -13,7 +13,7 @@ from django.utils import timezone
 
 # Create your models here.
 PHONE_REGEX = RegexValidator(
-    r'^01[0-2][0-9]{8}$', 'Egyptian phone number is required')
+    r'^01[0125][0-9]{8}$', 'Egyptian phone number is required')
 
 
 class UserManager(BaseUserManager):
