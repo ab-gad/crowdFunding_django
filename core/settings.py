@@ -34,12 +34,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home',
+    'users',
+    'campaign.apps.CampaignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authen.apps.AuthenConfig'
+    #'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +134,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# crispy_form
+CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+# media uploading
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+# here we tell django to use our custome User Model instead of the default one
+AUTH_USER_MODEL = 'users.User'
