@@ -3,12 +3,12 @@
 
 {% block 'title' %} Home {% endblock %}
 
-{% block 'content' %}
+{% block 'sidebar' %}
+    <p>test</p>
+    <p>test 2</p>
+{% endblock 'sidebar' %}
 
-    {% block sidebar %}
-        <p>test</p>
-        <p>test 2</p>
-    {% endblock sidebar %}
+{% block 'content' %}
 
     <section id="home_section">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -83,6 +83,13 @@
                 </div>
             </div>
         </div>
+
+        <div class="banner_container">
+            <div class="container position-relative  banner">
+                <img src="{% static 'images/h2.png' %}" width="100%" />
+                <button class="btn1 btn btn-primary shadow ">Start a Fundraise</button>
+            </div>
+        </div>  
 
     </section>
 

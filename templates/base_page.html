@@ -51,13 +51,20 @@
 
     <div id="sidebar" >
         <h2 class="text-center "> Crowd <span class="funding_span t">Funding</span> </h2>
-        <h5 class="p-2"> {% block sidebar %}  {% endblock sidebar %} </h5>
+        <h5 class="p-2"> {% block 'sidebar' %}  {% endblock 'sidebar' %} </h5>
     </div>
 
   <div class="container py-5">
-    {% block 'content' %}  {% endblock %}
+    {% block 'content' %}  {% endblock 'content' %}
   </div>
 
+ 
+
+  <!-- <div class="fotters text-light bg-dark">
+    <p> &copy; ITI - Coded In 2022-Team_4: </p>
+  </div> -->
+
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  
 </body>
 </html>
