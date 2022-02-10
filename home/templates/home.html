@@ -1,4 +1,4 @@
-{% extends 'base_page.html' %}
+{% extends 'layouts/base_page.html' %}
 {% load static %}
 
 {% block 'title' %} Home {% endblock %}
@@ -84,6 +84,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="banner_container">
             <div class="container position-relative  banner">
                 <img src="{% static 'images/h2.png' %}" width="100%" />
@@ -91,7 +92,17 @@
             </div>
         </div>  
 
+=======
+        <div class="container position-relative banner">
+            <img src="{% static 'images/h2.png' %}" width="100%" />
+            <button class="btn1 btn btn-primary shadow ">
+                <a href="#" class="text-light ">
+                    Start a Fundraise
+                </a> 
+            </button>
+        </div>
+        {% include 'includes/footer.html' %}
+>>>>>>> 413b6db6054933c4145f6ff270bdcdb1ca425311
     </section>
-
 {% endblock %}
     

@@ -1,3 +1,6 @@
+a {
+    text-decoration: none !important;
+}
 nav {
     z-index: 5;
 }
@@ -26,6 +29,7 @@ nav {
 #home_section h2 {
     font-size: 40px;
 }
+<<<<<<< HEAD:static/css/home.css
 .fotter{
     width: 100%;
     height: 50px;
@@ -36,13 +40,23 @@ nav {
     position: relative;
   }
   
+=======
+#home_section .banner {
+    position: relative;
+  }
+
+>>>>>>> 413b6db6054933c4145f6ff270bdcdb1ca425311:static/assets/css/home.css
 #home_section .banner img {
     width: 100%;
     height: auto;
     margin: 5px 0px;
     border-radius: 1rem;
 }
+<<<<<<< HEAD:static/css/home.css
   
+=======
+
+>>>>>>> 413b6db6054933c4145f6ff270bdcdb1ca425311:static/assets/css/home.css
 #home_section .btn1 {
     position: absolute;
     top: 70%;
@@ -60,7 +74,11 @@ nav {
     background-color: rgb(54, 50, 50);
     color: wheat;
 }
+<<<<<<< HEAD:static/css/home.css
   
+=======
+
+>>>>>>> 413b6db6054933c4145f6ff270bdcdb1ca425311:static/assets/css/home.css
 /* ----------------------------------- side bar -------------------------- */
 
 #sidebar {
