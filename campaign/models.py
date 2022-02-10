@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
-from django.utils.translation import ugettext as _
 from taggit.managers import TaggableManager
 from users.models import User
 
@@ -50,7 +49,7 @@ class Campaign(models.Model):
     def clean(self):
         if (self.is_featured == True and Campaign.objects.filter(is_featured=True).exclude(id=self.id).count() >= 5):
             raise ValidationError(
-                {'is_featured': _('You already have five featured campaigns.')})
+                {'is_featured': 'You already have five featured campaigns.'})
 
         valid = True
         start_date = self.start_date
