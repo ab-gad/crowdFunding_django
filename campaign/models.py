@@ -8,8 +8,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 from taggit.managers import TaggableManager
-from user.models import User
-
+from users.models import User
 
 def in_fourteen_days():
     return timezone.now() + timedelta(days=14)
