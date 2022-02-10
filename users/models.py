@@ -154,4 +154,10 @@ class User (AbstractBaseUser, PermissionsMixin):
     def has_module_perms(self, app_label):
         return True
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(
+        upload_to="profile_images", verbose_name='profile picture', default='profile_images/default-pic.jpeg')
 
+    def get_absolute_url(self):
+        return reverse('user_profile')
