@@ -142,3 +142,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap'
 # media uploading
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+# here we tell django to use our custome User Model instead of the default one
+AUTH_USER_MODEL = 'users.User'
