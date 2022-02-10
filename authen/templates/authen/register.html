@@ -1,11 +1,10 @@
-{% extends "base_page.html" %} 
+{% extends "layouts/base_page.html" %} 
 
-{% block title %} 
+{% block 'title' %} 
   Register 
 {% endblock %} 
 
-{% block content %} 
-
+{% block 'content' %} 
   <div class ="container w-50 mt-5 p-3  border"> 
     {% load crispy_forms_tags %}
     <form method="POST" class="form-group" enctype="multipart/form-data">
