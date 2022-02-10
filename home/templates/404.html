@@ -1,2 +1,25 @@
+{% load static %}
 
-   
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title> 404 Not Found</title>
+</head>
+<body style="background-color: #ddd;">
+    
+    <div class="error_404">
+        <img src="{% static 'images/404.png' %}" alt="404_ERROR" >
+        <h2> Sorry, Page is Not Found</h2>
+        <button class="btn btn-danger m-4">
+            <a href='/' class="text-light ">To Home Page</a>
+        </button>
+
+    </div>
+
+</body>
+</html>
