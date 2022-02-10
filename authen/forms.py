@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.validators import RegexValidator
-# from user.models import User
+from users.models import User
 
 PHONE_REGEX = RegexValidator(r'^01[0125][0-9]{8}$', 'Egyptian phone number is required')
 

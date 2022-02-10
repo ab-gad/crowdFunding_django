@@ -11,7 +11,7 @@ from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 # from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-from user.models import User, UserProfile
+from users.models import User, UserProfile
 
 from .forms import LoginForm, RegisterForm
 
