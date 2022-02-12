@@ -4,6 +4,7 @@ from .models import Test_simulation
 
 data = Test_simulation.objects.all()
 def home (request):
+    # for project in
     return render(request , 'home.html' , {'name': data})
 
 def error (request):
