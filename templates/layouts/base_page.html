@@ -31,26 +31,28 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Contact Us</a>  
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%url 'register'%}">Register</a>  
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%url 'login'%}">Login</a>  
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%url 'logout'%}">Logout</a>   
-                    </li>
-                
                 </ul>
 
-                <form method="post" action="{% url 'search_page' %}" class="d-flex" >
-                    {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"> 
-                        <a href="{% url 'search_page' %}" class="text-light"> Search </a>
-                    </button>
-                </form>
+                <div class="d-flex mx-5">
+                    <form method="post" action="{% url 'search_page' %}" class="d-flex" >
+                        {% csrf_token %}
+                        <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"> 
+                            <a href="{% url 'search_page' %}" class="text-light"> Search </a>
+                        </button>
+                    </form> 
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle mx-3 " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{%url 'login'%}"> Login </a></li>
+                                <li><a class="dropdown-item" href="{%url 'register'%}"> Register </a></li>
+                                <li><a class="dropdown-item" href="{%url 'logout'%}"> Logout </a></li>
+                            </ul>
+                        </li> 
+                    </ul>
+                </div>      
             </div>
         </div>
     </nav>
