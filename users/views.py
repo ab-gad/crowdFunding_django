@@ -29,8 +29,6 @@ def edit(request):
         return render(request, 'user/edit.html', {'current_user': current_user, 'form': form})
 
 @login_required
-def check_password(request):
-    if request.is_ajax and request.method == "POST":
-        password = request.POST.get("pass")
-        is_password_correct = request.user.check_password(password)
-        return JsonResponse({"is_password_correct": is_password_correct})
+def delete(request):
+    request.user.delete()
+    return redirect('logout')
