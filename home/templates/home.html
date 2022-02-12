@@ -3,12 +3,9 @@
 
 {% block 'title' %} Home {% endblock %}
 
-{% block 'sidebar' %}
-    <p>test</p>
-    <p>test 2</p>
-{% endblock 'sidebar' %}
 
 {% block 'content' %}
+{% include 'includes/sidenav-categories.html' %}
 
     <section id="home_section">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -91,7 +88,7 @@
                     Start a Fundraise
                 </a> 
             </button>
-        </div>
+        </div>   
         {% include 'includes/footer.html' %}
     </section>
 {% endblock %}
