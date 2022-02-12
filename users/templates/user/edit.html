@@ -1,13 +1,12 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base_page.html' %}
 
-{% block title %} {{user}} {% endblock title %}
+{% block 'title' %} {{user}} {% endblock %}
 
-{% block content %}
+{% block 'content' %}
 
     <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
-         style="min-height: 600px; background-image: url(/static/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-      <!-- Mask -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+            <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
@@ -29,9 +28,9 @@
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
-                <div class="col-4">
-                    <a href="{% url 'password_change'%}" class="btn btn-primary" role="button" for="id_password"> Change Password</a>
-                </div>
+                <!-- <div class="col-4">
+                    <a href="{ % url 'password_change'%}" class="btn btn-primary" role="button" for="id_password"> Change Password</a>
+                </div> -->
                 <div class="col-4 mb-6">
                   <div class="card-profile-image">
                     <img src="..{{current_user.avatar.url}}" class="rounded-circle">
@@ -164,40 +163,37 @@
 
     </div>
 
-{% endblock content %}
-
-<!-- Specific JS goes HERE -->
-{% block javascripts %}
-<script>
-  $(document).ready(function() {
-    $("#submitPassword").on('click', submit)
-  })
-
-  function submit(e){
-    let password = $('#passwordConfirmation').val();
-    if (password) {
-      sendRequest(password);
-    }
-  }
-
-  function sendRequest(password){
-    $.ajax({
-      url:"{% url 'check_password' %}",
-      type: "POST",
-      data: {pass: password, csrfmiddlewaretoken: '{{ csrf_token }}'},
-      dataType: "JSON",
-      success: handleSuccess
-    })
-  }
-
-  function handleSuccess(result){
-    isPasswordCorrect = JSON.parse(result["is_password_correct"]);
-    if (! isPasswordCorrect ){
-      $("#modalBody").append("<div class='d-flex justify-content-center mt-4'><p class='alert alert-danger text-center w-75'>Password is not correct</p></div>")
-    }
-    else{
-      window.location.href = "{% url 'user_delete' %}"
-    }
-  }
-</script>
-{% endblock javascripts %}
+    <script>
+      $(document).ready(function() {
+        $("#submitPassword").on('click', submit)
+      })
+    
+      function submit(e){
+        let password = $('#passwordConfirmation').val();
+        if (password) {
+          sendRequest(password);
+        }
+      }
+    
+      function sendRequest(password){
+        $.ajax({
+          url:"{% url 'check_password' %}",
+          type: "POST",
+          data: {pass: password, csrfmiddlewaretoken: '{{ csrf_token }}'},
+          dataType: "JSON",
+          success: handleSuccess
+        })
+      }
+    
+      function handleSuccess(result){
+        isPasswordCorrect = JSON.parse(result["is_password_correct"]);
+        if (! isPasswordCorrect ){
+          $("#modalBody").append("<div class='d-flex justify-content-center mt-4'><p class='alert alert-danger text-center w-75'>Password is not correct</p></div>")
+        }
+        else{
+          window.location.href = "{% url 'user_delete' %}"
+        }
+      }
+    </script>
+    
+{% endblock %}
