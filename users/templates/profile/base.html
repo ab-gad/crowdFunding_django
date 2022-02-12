@@ -1,0 +1,11 @@
+{% extends 'layouts/base_page.html' %}
+
+{% block title %} {{user}} | {% endblock title %}
+
+{% block content %}
+    {% if donations %}
+        {% include 'profile/donations.html' %}    
+    {% else %}
+        {% include 'profile/campaigns.html' %}
+    {% endif %}
+{% endblock content %}
