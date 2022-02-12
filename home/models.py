@@ -6,4 +6,4 @@ class Test_simulation (models.Model):
     rate_simulation  = models.IntegerField()
 
     def __str__(self):
-        return self.title_simulation , self.rate_simulation 
+        return self.title_simulation 

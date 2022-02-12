@@ -52,25 +52,21 @@
           </div>
 
 
-        <div class="d-flex m-5 flex-wrap">
+        <div class="d-flex m-5 flex-wrap justify-content-center">
 
-            {% for person in name %}
+            {% for person in last_5_projects %}
 
-                {% if person.rate_simulation > 5  %}
-                    <div class="card m-2 shadow " style="width: 17rem;">
+                    <div class="card m-2 my-4 shadow " style="width: 17rem;">
                         <img src="{% static 'images/s3.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{person.title_simulation}}</h5>
-                            <p class="card-text"> <b> {{ person.rate_simulation }} </b><br/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"> <b> {{ person.id }} </b><br/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <a href="#" class="btn btn-primary m-auto">Show Project</a>
                         </div>
                     </div> 
-                {% endif %}
 
             {% endfor %}
         </div>
-
-
 
         <div class="container position-relative banner">
             <img src="{% static 'images/h2.png' %}" width="100%" />
