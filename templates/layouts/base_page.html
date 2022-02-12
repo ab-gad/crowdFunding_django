@@ -5,6 +5,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>
       {% block 'title' %}
@@ -12,7 +13,8 @@
     </title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
+    {% include "includes/usernav.html" %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top w-100">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Crowd Funding Django</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
