@@ -9,6 +9,7 @@ from django.utils import timezone
 from taggit.managers import TaggableManager
 from users.models import User
 
+
 def in_fourteen_days():
     return timezone.now() + timedelta(days=14)
 
