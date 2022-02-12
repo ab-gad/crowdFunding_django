@@ -41,28 +41,21 @@
                     </li>
                 
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+
+                <form method="post" action="{% url 'search_page' %}" class="d-flex" >
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"> 
+                        <a href="{% url 'search_page' %}" class="text-light"> Search </a>
+                    </button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <div id="sidebar" >
-        <h2 class="text-center "> Crowd <span class="funding_span t">Funding</span> </h2>
-        <h5 class="p-2"> {% block 'sidebar' %}  {% endblock 'sidebar' %} </h5>
-    </div>
-
   <div class="container py-5">
     {% block 'content' %}  {% endblock 'content' %}
   </div>
-
- 
-
-  <!-- <div class="fotters text-light bg-dark">
-    <p> &copy; ITI - Coded In 2022-Team_4: </p>
-  </div> -->
 
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   
