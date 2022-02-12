@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('auth/', include('authen.urls')),
     path('comment/', include('comment.urls')),
-]
+    path('campaign/', include('campaign.urls')),
+ ]
