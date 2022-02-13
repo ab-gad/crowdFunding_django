@@ -6,6 +6,7 @@ from .models import (Campaign, CampaignImage, CampaignReport, Category,
                      Donation, Rating)
 
 # Register your models here.
+
 # admin.site.register(Campaign)
 admin.site.register(Category)
 admin.site.register(CampaignReport)
@@ -17,3 +18,4 @@ class Filter(admin.ModelAdmin):
     list_display = ("id" , "title" ,"is_featured")
     list_filter = ("is_featured","creation_date","category__label")
 admin.site.register(Campaign,Filter)
+

@@ -1,9 +1,9 @@
 
 <div id="sidebar" >
-  <h2 class="text-center"> Crowd <span class="funding_span t">Funding</span> </h2>
+  <h2 class="text-center mb-4"> Crowd <span class="funding_span t">Funding</span> </h2>
 
-  {% for person in name %}
-    <h5> {{person}} </h5>
+  {% for element in category %}
+    <h5 class="text-dark"> {{ element.label }} </h5>
   {% endfor %}
 </div>
 

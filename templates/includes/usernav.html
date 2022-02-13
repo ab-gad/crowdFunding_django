@@ -1,0 +1,42 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if request.user.is_authenticated %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div class="align-items-center">
+                        <img alt="user_avatar" src="{{request.user.avatar.url}}" width="50" height="50" class="rounded-circle">
+                        <span class="mb-0 text-sm fw-bold">
+                            {{ request.user }}
+                        </span>
+                    </div>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_profile' %}">My Profile</a>  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_edit' %}">Settings</a>  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'logout'%}">Logout</a>   
+                </li>
+            
+            </ul>
+        {% else %}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'login'%}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'register'%}">Register</a>
+            </li>
+        </ul>
+        {% endif %}
+        </div>
+    </div>
+</nav>
+ -->
