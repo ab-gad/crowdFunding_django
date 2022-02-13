@@ -6,5 +6,8 @@ urlpatterns = [
     path('<int:campaign_id>/donate', donation.donate, name='campaign_donate'),
     path('create', create.create_campaign, name='create_campaign'),
     path('show/<int:campaign_id>', campaign.show, name='campaign_show'),
+    path('<int:campaign_id>/report',report.campaign_report, name='campaign_report'),
+    path('<int:campaign_id>/donate', donation.donate, name='campaign_donate'),
+
 
 ]
