@@ -1,5 +1,5 @@
 # Database
-DB_PASSWORD = 'adham8585'
+DB_PASSWORD = '0000'
 DB_HOST = 'localhost'
-DB_USER = 'postgres'
+DB_USER = 'team4'
 
