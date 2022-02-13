@@ -17,6 +17,7 @@ def search (request):
     try:
         if request.method == 'POST' and request.POST['search']:
             search = request.POST['search']
+
             projects = Campaign.objects.filter(title__contains = search )
             if projects :
                 return render(request , 'search_page.html' , {'search' : projects , 'category' : categories , 'name': data })
