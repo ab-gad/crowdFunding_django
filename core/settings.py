@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'campaign.apps.CampaignConfig',
     'home',
+    'api.apps.ApiConfig',
     'users',
     'comment',
     'taggit',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authen.apps.AuthenConfig',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
