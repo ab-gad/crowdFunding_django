@@ -69,6 +69,7 @@ nav {
     top: 56px;
     height: 100vh;
     padding: 14px;  
+    left: 0 !important;
 }
 #sidebar .funding_span{
     color: red;

@@ -1,0 +1,27 @@
+{% extends 'layouts/base_page.html' %}
+{% block 'title' %} Search Results {% endblock %}
+
+{% block 'content' %}
+    {% include 'includes/sidenav-categories.html' %}
+    <div class="text-center mx-auto my-5 w-50  rounded">
+
+        {% if search %}  
+            <ul>
+                {% for project in search %}
+                    <a href="#" >
+                        <li class="list-group-item bg-light text-primary text-start m-4">
+                            <p class="text-success"> Title :    <span class="text-dark"> {{ project.title }}    </span></p>
+                            <p class="text-success"> Category : <span class="text-dark"> {{ project.category }} </span></p>
+                            <p class="text-success"> Target :   <span class="text-dark"> {{ project.target }}   </span></p>         
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <ul>
+                <li class="list-group-item bg-light"> {{msg}} </li>
+            </ul>
+        {% endif %}
+               
+    </div>
+{% endblock 'content' %}
