@@ -13,27 +13,43 @@
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>
-            </div>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>         
+            </div>           
             <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="3000">
+              <div class="carousel-item active" data-bs-interval="3000" >
                 <img src="{% static 'images/s1.jpeg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption d-none d-md-block text-light bg-dark rounded">
-                    <h2>Crowd Funding</h2>
-                    <p>Help others to make their lives better </p>
+                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                    <h2 class="text-light text-capitalize" > {{ highest_5_projects.0.campaign }} </h2>
+                    <p> {{ highest_5_projects.0.campaign.details }}  </p>
                 </div>
               </div>
-              <div class="carousel-item" data-bs-interval="3000">
+              <div class="carousel-item" data-bs-interval="3000" >
                 <img src="{% static 'images/s3.jpg' %}"  class="d-block img" alt="photo">
-                <div class="carousel-caption d-none d-md-block text-light bg-dark rounded">
-                    <h2>Crowd Funding</h2>
-                    <p>Help others to make their lives better </p>
+                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                    <h2 class="text-light text-capitalize" > {{ highest_5_projects.1.campaign }} </h2>
+                    <p> {{ highest_5_projects.1.campaign.details }}  </p>
                 </div>
               </div>
-              <div class="carousel-item" data-bs-interval="3000">
+              <div class="carousel-item" data-bs-interval="3000" >
                 <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption d-none d-md-block  text-light bg-dark rounded">
-                    <h2>Crowd Funding</h2>
-                    <p>Help others to make their lives better </p>
+                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                    <h2 class="text-light text-capitalize"> {{ highest_5_projects.2.campaign }} </h2>
+                    <p> {{ highest_5_projects.2.campaign.details }} </p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000" >
+                <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
+                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                    <h2 class="text-primary"> {{ highest_5_projects.3.campaign }} </h2>
+                    <p> {{ highest_5_projects.3.campaign.details }} </p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000" >
+                <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
+                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                    <h2 class="text-light text-capitalize"> {{ highest_5_projects.4.campaign }} </h2>
+                    <p> {{ highest_5_projects.4.campaign.details }} </p>
                 </div>
               </div>
             </div>
@@ -48,7 +64,6 @@
           </div>
 
         <div class="d-flex m-5 flex-wrap justify-content-center">
-
             {% for project in last_5_projects %}
 
                     <div class="card m-2 my-4 shadow " style="width: 17rem;">

@@ -1,14 +1,15 @@
 from unicodedata import category
 from django.shortcuts import render 
-from campaign.models import Campaign , Category
+from campaign.models import Campaign , Category , Rating
 from django.shortcuts import redirect
 
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
+highest_5_projects = Rating.objects.all().order_by('-value')[:5]
 categories = Category.objects.all()
 
 def home (request):
-    return render(request , 'home.html' , {'category' : categories , 'last_5_projects':last_5_projects})
+    return render(request , 'home.html' , {'category' : categories , 'last_5_projects':last_5_projects , 'highest_5_projects':highest_5_projects})
 
 def error (request):
     return render(request , '404.html')
