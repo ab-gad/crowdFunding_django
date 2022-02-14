@@ -3,7 +3,9 @@
   <h2 class="text-center mb-4"> Crowd <span class="funding_span t">Funding</span> </h2>
 
   {% for element in category %}
-    <h5 class="text-dark"> {{ element.label }} </h5>
+      <h5 class="text-dark">
+        <a href="{% url 'category' element.id %}" > {{ element.label }} </a>
+      </h5>
   {% endfor %}
 </div>
 

@@ -1,5 +1,5 @@
 from unicodedata import category
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render 
 from campaign.models import Campaign , Category
 from django.shortcuts import redirect
 
@@ -30,10 +30,11 @@ def search (request):
         
 
 def category(request, categoty_id):
+    try:
+        if request.method == "GET":
+            campaigns = Campaign.objects.filter(category=categoty_id)
+        return render(request, 'category.html', {"campaigns": campaigns, "category": categories})
+    
+    except:
+        return redirect(error)
 
-    if request.method == "GET":
-        categ = get_object_or_404(Category, id=categoty_id)
-        campaigns = Campaign.objects.filter(category=categoty_id)
-
-    return render(request, 'category.html', {"campaigns": campaigns,"categ": categ, "category": categories})
-# /home/category/2
