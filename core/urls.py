@@ -27,6 +27,7 @@ urlpatterns = [
     path('campaign/', include('campaign.urls')),
 
     path('user/', include('users.urls')),
+    path('api/', include('api.urls')),
 ]
 
 urlpatterns = urlpatterns + \

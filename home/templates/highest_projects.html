@@ -1,0 +1,56 @@
+{% extends 'layouts/base_page.html' %}
+{% load static %}
+
+{% block 'title' %} Highest Project {% endblock %}
+
+
+{% block 'content' %}
+{% include 'includes/sidenav-categories.html' %}
+ 
+        <table class="table" style="width:60%;position:relative;left:32%;top:40px;">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2"> <h1 class="text-center text-capitalize "> {{ highest_project.title }}</h1> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Category</th>
+                    <td class="text-center">{{ highest_project.category }} </td>
+                </tr>
+                <tr>
+                    <th scope="row">Target</th>
+                    <td class="text-center">{{ highest_project.target }} </td>
+                </tr>
+                <tr>
+                    <th scope="row">Details</th>
+                    <td class="text-center">{{ highest_project.details }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tags</th>
+                    <td class="text-center">{{ highest_project.tags }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Creator</th>
+                    <td class="text-center">{{ highest_project.creator }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Creation Date</th>
+                    <td class="text-center">{{ highest_project.creation_date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Start Date </th>
+                    <td class="text-center">{{ highest_project.start_date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">End Date </th>
+                    <td class="text-center">{{ highest_project.end_date }}</td>
+                </tr><tr>
+                    <th scope="row">Featured</th>
+                    <td class="text-center">{{ highest_project.is_featured }}</td>
+                </tr>
+
+            </tbody>
+          </table>
+
+{% endblock %}
