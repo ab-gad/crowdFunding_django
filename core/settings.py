@@ -33,11 +33,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'campaign.apps.CampaignConfig',
     'home',
+    'api.apps.ApiConfig',
     'users',
     'comment',
     'taggit',
-    'campaign.apps.CampaignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,9 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authen.apps.AuthenConfig',
     'crispy_forms',
+
     'mathfilters',
     'django.contrib.humanize',
-
+  
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
