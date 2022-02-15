@@ -12,7 +12,17 @@
         {{ form|crispy }}
 
         <button type="submit" class="btn btn-primary mt-3">Login</button>
+      </form>
+      <div class="row">
+        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
 
+          <div class="d-grid gap-3 col-6 mx-auto">
+              <a href="{% url 'social:begin' 'facebook' %}" class="mt-3 btn btn-primary text-light" role="button">
+                Login with Facebook 
+              </a>
+            </div>
+          </div>
+        </div>
         <p class="text-center mt-5">Don't have an accout? <a href="{% url 'register' %}">Create an account</a> </p>
         
   </div>
