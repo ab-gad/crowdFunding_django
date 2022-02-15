@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$28^z=-b^#o2^77n)=zdj&1i*p&+itj2ie3=#eri-xe6w!5^1n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -176,7 +176,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.social_auth.associate_by_email',
     'social_core.pipeline.user.get_username',
-    'users.models.save_profile',
+    'users.models.create_social_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
