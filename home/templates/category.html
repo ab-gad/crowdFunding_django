@@ -6,8 +6,7 @@
 {% include 'includes/sidenav-categories.html' %}
 
 <div style="width:50%;margin-left:26rem;text-align:center;">
-    <h2 class= "mt-5 ml-3"> Campaigns in {{ category.label }} fundraising </h2>
-
+    <h2 class= "mt-5 ml-3"> Campaigns Fundraising </h2>
     <hr>
     <div class="my-5  ">
         <div class="container">
@@ -17,12 +16,13 @@
                         {% for campaign in campaigns %}
                             <div class="ml-5 col-3 card card-stats mb-4 mb-xl-4 text-center h-100 w-100 bg-light shadow">
                                 <h3 class="card-header">{{campaign.title}}</h3>
-                                <img class="card-img-top" src="{{ campaign.images.first.path.url }}" alt="Campaign image">
+                                <!-- <img class="card-img-top" src="{{ campaign.images.first.path.url }}" alt="Campaign image"> -->
                                 <div class="card-body">
+                                    <h5>category : {{campaign.category}} </h5>
                                     <h5>Target: {{campaign.target}} </h5>
                                     <p class="card-text cut-text ">{{campaign.details}}</p>
                                     <h5 class="card-text cut-text mb-3">By: {{campaign.creator}}</h5>
-                                    <a href="/" class="btn btn-primary">More details</a>
+                                    <a href="{% url 'highest_projects' campaign.id %}" class="btn btn-primary">More details</a>
                                 </div>
                             </div>
                         {% endfor %}

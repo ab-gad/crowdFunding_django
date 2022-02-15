@@ -41,7 +41,7 @@
               <div class="carousel-item" data-bs-interval="3000" >
                 <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
                 <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-primary"> {{ highest_5_projects.3.campaign }} </h2>
+                    <h2 class="text-light"> {{ highest_5_projects.3.campaign }} </h2>
                     <p> {{ highest_5_projects.3.campaign.details }} </p>
                 </div>
               </div>
@@ -72,7 +72,7 @@
                             <h5 class="card-title">{{project.title}}</h5>
                             <p class="card-text text-muted"> {{ project.category }} </p> 
                             <p class="card-text"> {{ project.details }} </p>
-                            <a href="#" class="btn btn-primary m-auto">Show Project</a>
+                            <a href="{% url 'highest_projects' project.id %}" class="btn btn-primary m-auto">Show Project</a>
                         </div>
                     </div> 
 
