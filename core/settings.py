@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authen.apps.AuthenConfig',
     'crispy_forms',
+
+    'mathfilters',
+    'django.contrib.humanize',
+  
     'rest_framework',
 ]
 
