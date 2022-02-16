@@ -19,74 +19,6 @@
 
 
     <title>Title</title>
-    <!--css-->
-
-    <style type="text/css">
-        .carousel {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            white-space: nowrap;
-
-        }
-
-
-
-        .card {
-            margin: 0 auto;
-            /* Added */
-            float: none;
-            /* Added */
-            margin-bottom: 10px;
-            /* Added */
-        }
-
-        .rating {
-            width: 300px;
-            margin: 0 auto 1em;
-            font-size: 45px;
-            overflow: hidden;
-        }
-
-        .rating input {
-            float: right;
-            opacity: 0;
-            position: absolute;
-        }
-
-        .rating a,
-        .rating label {
-            float: right;
-            color: #aaa;
-            text-decoration: none;
-            -webkit-transition: color .4s;
-            -moz-transition: color .4s;
-            -o-transition: color .4s;
-            transition: color .4s;
-        }
-
-        .rating label:hover~label,
-        .rating input:focus~label,
-        .rating label:hover,
-        .rating a:hover,
-        .rating a:hover~a,
-        .rating a:focus,
-        .rating a:focus~a {
-            color: orange;
-            cursor: pointer;
-        }
-
-        .rating2 {
-            direction: rtl;
-        }
-
-        .rating2 a {
-            float: none
-        }
-    </style>
 </head>
 
 <body>
@@ -127,26 +59,25 @@
 
 
                 <div class="card-body" style="padding-top: 60%;">
-                    <h1 class="card-title">{{campaign_info.title}}</h1>
-                    <h5>{{campaign_info.creator}} is organizing this fundraiser.</h5>
-                    <div class="card category">
+                    <h1 class="card-title text-center">{{campaign_info.title}}</h1>
+                    <h5 class="text-center" >{{campaign_info.creator}} is organizing this fundraiser.</h5>
+                    <div class="card category text-center">
                         <p>{{campaign_info.category}}</p>
                     </div>
                 </div>
 
                 <div class="donations">
-
-                    <progress class="progress-bar rounded-pill" value="{{ donations|div:campaign_info.target|mul:100 }}"
-                        max="100"></progress>
-                    <h2 class="m-progress-meter-heading">
+                    <progress class="rounded-pill" id="file" value="{{ donations|div:campaign_info.target|mul:100 }}" max="100"> </progress>
+                   
+                    <h2 class=" text-center">
                         {{donations|intcomma}} EGP
                         <span class="text-stat text-stat-title">
                             raised of {{campaign_info.target|intcomma}} EGP goal</span>
                     </h2>
                 </div>
-                <div class="tags">
+                <div class=" text-center">
                     {% for tag in tags %}
-                    <span class="badge bg-info">{{tag}}</span>
+                    <span class="badge bg-info ">{{tag}}</span>
                     {% endfor %}
                 </div>
 
@@ -257,7 +188,7 @@
                 <div class="feedback">
                     <form method="post" action="{% url 'campaign_rate' campaign_info.id %}">
                         {% csrf_token %}
-                        <h4>Help this campaign by rating?</h4>
+                        <h4 class="text-center">Help this campaign by rating?</h4>
                         <div class="rate">
 
                             {% for level in rating_range %}
