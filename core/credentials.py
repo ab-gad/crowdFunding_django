@@ -1,11 +1,11 @@
 # Database
-DB_PASSWORD = '123456'
-DB_HOST = 'localhost'
-DB_USER = 'postgres'
-
-# DB_PASSWORD = '0000'
+# DB_PASSWORD = '123456'
 # DB_HOST = 'localhost'
-# DB_USER = 'team_4'
+# DB_USER = 'postgres'
+
+DB_PASSWORD = '0000'
+DB_HOST = 'localhost'
+DB_USER = 'team_4'
 
 #Social Auth
 SOCIAL_AUTH_FACEBOOK_KEY = '471857011191468'    # App ID
