@@ -1,0 +1,26 @@
+{% extends 'layouts/base_page.html' %}
+{% load static %}
+{% block 'title' %} Search Results {% endblock %}
+
+{% block 'content' %}
+
+    <h1 class="text-center m-4" >All Projects </h1>
+    <hr>
+    <div class="mt-5 w-100 ">
+        <div class="row justify-content-center gap-5">
+            {% for campaign in all %}
+                <div class="m-1 col-3 card card-stats mb-4 mb-xl-4 text-center bg-light shadow" style="width:20rem;min-height:30rem;">
+                    <h3 class="card-header text-capitalize">{{campaign.title}}</h3>
+                    <div class="card-body">
+                        <h5>category : {{campaign.category}} </h5>
+                        <h5>Target: {{campaign.target}} </h5>
+                        <p class="card-text cut-text ">{{campaign.details}}</p>
+                        <h5 class="card-text cut-text mb-3">By: {{campaign.creator}}</h5>
+                        <a href="{% url 'highest_projects' campaign.id %}" class="btn btn-primary">More details</a>
+                    </div>
+                </div>
+            {% endfor %}
+      </div>
+    </div>
+
+{% endblock 'content' %}

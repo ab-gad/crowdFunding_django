@@ -1,5 +1,5 @@
 {% extends 'layouts/base_page.html' %}
-
+{% load static %}
 {% block title %} {{category.label}} Categories {% endblock title %}
 
 {% block 'content' %}
@@ -7,6 +7,7 @@
 
 <div style="width:50%;margin-left:26rem;text-align:center;">
     <h2 class= "mt-5 ml-3"> Campaigns Fundraising </h2>
+    <h4>Total : <span class="text-danger"> {{ camplen }} </span> Projects </h4>
     <hr>
     <div class="my-5  ">
         <div class="container">

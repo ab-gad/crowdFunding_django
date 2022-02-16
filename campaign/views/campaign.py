@@ -55,54 +55,55 @@ def cancel(request, campaign_id):
     return redirect('user_profile')
 
 
-def search(request):
+# def search(request):
 
-    # respond to ajax requests only
-    if request.is_ajax and request.method == "GET":
+#     # respond to ajax requests only
+#     if request.is_ajax and request.method == "GET":
 
-        # get the searching key
-        search_key = request.GET.get('key')
+#         # get the searching key
+#         search_key = request.GET.get('key')
 
-        # return matched campaigns
-        matched_by_title = Campaign.objects.filter(
-            title__icontains=search_key)[:3]
+#         # return matched campaigns
+#         matched_by_title = Campaign.objects.filter(
+#             title__icontains=search_key)[:3]
 
-        # return matched tags
-        matched_by_tags = get_matched_by_tags(search_key, limit=3)
+#         # return matched tags
+#         matched_by_tags = get_matched_by_tags(search_key, limit=3)
 
-        # serialize the result
-        matched_by_title = serializers.serialize('json', matched_by_title)
-        matched_by_tags = serializers.serialize('json', matched_by_tags)
+#         # serialize the result
+#         matched_by_title = serializers.serialize('json', matched_by_title)
+#         matched_by_tags = serializers.serialize('json', matched_by_tags)
 
-        return JsonResponse({"by_title": matched_by_title, "by_tags": matched_by_tags})
-
-
-def search_all(request):
-    categories = Category.objects.all()
-    if request.method == "GET":
-        # check if there is a key to search by
-        search_key = request.GET.get('key')
-
-        if search_key:
-
-            # matched by title
-            matched_by_title = Campaign.objects.filter(
-                title__icontains=search_key)
-
-            # return matched tags
-            matched_by_tags = get_matched_by_tags(search_key)
-
-            context = {"matched_by_title": matched_by_title, "matched_by_tags": matched_by_tags,
-                       "key": search_key,"categories": categories}
-
-            return render(request, 'campaign/search_results.html', context)
-
-        # return to the same page if no params are passed
-        return redirect(request.META.get('HTTP_REFERER', 'home'))
+#         return JsonResponse({"by_title": matched_by_title, "by_tags": matched_by_tags})
 
 
-def get_matched_by_tags(search_key, limit=None):
+# def search_all(request):
+#     categories = Category.objects.all()
+#     if request.method == "GET":
+#         # check if there is a key to search by
+#         search_key = request.GET.get('key')
 
+#         if search_key:
+
+#             # matched by title
+#             matched_by_title = Campaign.objects.filter(
+#                 title__icontains=search_key)
+
+#             # return matched tags
+#             matched_by_tags = get_matched_by_tags(search_key)
+
+#             context = {"matched_by_title": matched_by_title, "matched_by_tags": matched_by_tags,
+#                        "key": search_key,"categories": categories}
+
+#             return render(request, 'campaign/search_results.html', context)
+
+#         # return to the same page if no params are passed
+#         return redirect(request.META.get('HTTP_REFERER', 'home'))
+
+
+def get_matched_by_tags(request , search_key, limit=None):
+    search_key = request.GET.get('key')
+    matched_by_tags = get_matched_by_tags(search_key, limit=3)
     # get the matched tags
     tags = Tag.objects.filter(name__icontains=search_key)
 
