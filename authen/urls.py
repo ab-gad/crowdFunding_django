@@ -21,6 +21,9 @@ urlpatterns = [
         email_template_name='authen/password/reset_email.html',
         subject_template_name='authen/password/reset_email_subject.txt',),
         name='password_reset'),
+     # Email sent display message
+    path('password_reset/done/', dj_auth_views.PasswordResetDoneView.as_view(template_name='authen/password/reset_done.html'),
+         name='password_reset_done'),   
 ]     
 
     
