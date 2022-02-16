@@ -27,17 +27,18 @@ SECRET_KEY = 'django-insecure-$28^z=-b^#o2^77n)=zdj&1i*p&+itj2ie3=#eri-xe6w!5^1n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'campaign.apps.CampaignConfig',
     'home',
+    'api.apps.ApiConfig',
     'users',
     'comment',
     'taggit',
-    'campaign.apps.CampaignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authen.apps.AuthenConfig',
     'crispy_forms',
+
+    'mathfilters',
+    'django.contrib.humanize',
+  
+    'rest_framework',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +78,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -151,3 +161,35 @@ AUTH_USER_MODEL = 'users.User'
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
+
+SOCIAL_AUTH_USER_MODEL = 'users.User'
+
+#social auth
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.social_auth.associate_by_email',
+    'social_core.pipeline.user.get_username',
+    'users.models.create_social_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = SOCIAL_AUTH_FACEBOOK_KEY    # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = SOCIAL_AUTH_FACEBOOK_SECRET  # App Secret
+
+# social setup
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+

@@ -21,12 +21,12 @@ class UserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name='', password=None, is_active=True, is_staff=False, is_superuser=False):
         
         # >>> here we can create some validation
-        if not email:
-            raise ValueError("Users must have an email address")
-        if not password:
-            raise ValueError("Users must have a password")
-        if not first_name:
-            raise ValueError("Users must have a first name")
+        # if not email:
+        #     raise ValueError("Users must have an email address")
+        # if not password:
+        #     raise ValueError("Users must have a password")
+        # if not first_name:
+        #     raise ValueError("Users must have a first name")
 
         # >>> 2nd
         
@@ -161,3 +161,33 @@ class UserProfile(models.Model):
 
     def get_absolute_url(self):
         return reverse('user_profile')
+
+def create_social_user(strategy, details, backend, user=None, *args, **kwargs):
+    print('____________________________________________________',details)
+    if user:
+        return {'is_new': False}
+    print('____________________________________________________',details)
+    if not details:
+        return
+
+    print('____________________________________________________',details)
+    # create new user
+    user = User.objects.create_user(email=details['email'], first_name=details['first_name'], last_name=details['last_name'],
+                                    password="default@socail@password")
+
+    UserProfile.objects.create(user_id=user.id, avatar=user.avatar)
+    
+#     return {
+#         'is_new': True,
+#         'user': user}
+
+# def save_profile(backend, user, response, *args, **kwargs):
+#     print('_________________________________________________________',response)
+#     print('_________________user____________________________',user)
+#     if backend.name == 'facebook':
+#         first_name = response.get('first_name')
+#         last_name = response.get('last_name')
+#         email = response.get('email')
+#         print('_________________user____________________________', first_name, last_name, email)
+
+        

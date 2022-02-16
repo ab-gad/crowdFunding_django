@@ -12,7 +12,6 @@ from django.template.loader import render_to_string
 # from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from users.models import User, UserProfile
-
 from .forms import LoginForm, RegisterForm
 
 # Views
@@ -36,7 +35,7 @@ def login(request):
     form = LoginForm(data=request.POST or None)
     if form.is_valid():
         dj_login(request, form.user_cache)
-        return redirect(request, "home")
+        return _redirect(request, "home")
     return render(request, "authen/login.html", {"form": form})
 
 
@@ -46,5 +45,16 @@ def logout(request):
     # messages.info(request, "You have successfully logged out.")
     return redirect("login")
 
+
+
+#helpers
+def _redirect(request, url):
+
+    nxt = request.GET.get("next", None)
+    if nxt:
+        return redirect(nxt)
+
+    else:
+        return redirect(url)
 
 
