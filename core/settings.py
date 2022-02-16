@@ -159,6 +159,10 @@ MEDIA_URL = '/media/'
 
 # here we tell django to use our custome User Model instead of the default one
 AUTH_USER_MODEL = 'users.User'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
+
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 
 #social auth
@@ -189,3 +193,4 @@ SOCIAL_AUTH_FACEBOOK_SECRET = SOCIAL_AUTH_FACEBOOK_SECRET  # App Secret
 # social setup
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+

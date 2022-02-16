@@ -54,4 +54,3 @@ def cancel(request, campaign_id):
         campaign.delete()
     return redirect('user_profile')
 
-

@@ -42,6 +42,7 @@ local_settings.py
 db.sqlite3
 
 
+core/credentials.py
 
 
 
