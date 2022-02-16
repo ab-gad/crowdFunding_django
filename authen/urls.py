@@ -27,7 +27,10 @@ urlpatterns = [
     # password reset successfully message
     path('reset/complete/', dj_auth_views.PasswordResetCompleteView.as_view(template_name='authen/password/reset_complete.html'),
          name='password_reset_complete'),        
-]     
+    # Action to the link sent to email
+     path('reset/<uidb64>/<token>/', dj_auth_views.PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
+] 
 
     
-]
+

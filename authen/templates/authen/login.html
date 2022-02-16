@@ -12,6 +12,7 @@
         {{ form|crispy }}
 
         <button type="submit" class="btn btn-primary mt-3">Login</button>
+        <a class="m-auto" href="{% url 'password_reset' %}">Reset password</a>
 
         <p class="text-center mt-5">Don't have an accout? <a href="{% url 'register' %}">Create an account</a> </p>
         
