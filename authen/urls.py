@@ -16,6 +16,11 @@ urlpatterns = [
          name='password_change'),
     path('password_change/done/', dj_auth_views.PasswordChangeDoneView.as_view(),
          name='password_change_done'),
+    # Reset password form
+    path('password_reset/', dj_auth_views.PasswordResetView.as_view(template_name='authen/password/reset_form.html',
+        email_template_name='authen/password/reset_email.html',
+        subject_template_name='authen/password/reset_email_subject.txt',),
+        name='password_reset'),
 ]     
 
     
