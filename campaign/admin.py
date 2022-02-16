@@ -7,7 +7,7 @@ from .models import (Campaign, CampaignImage, CampaignReport, Category,
 
 # Register your models here.
 
-admin.site.register(Campaign)
+# admin.site.register(Campaign)
 admin.site.register(Category)
 admin.site.register(CampaignReport)
 admin.site.register(Rating)

@@ -6,13 +6,14 @@ from .models import UserProfile
 from django.http import JsonResponse
 
 
-@login_required
+@login_required(login_url='/auth/login/')
 def profile(request):
     current_user_campaigns = Campaign.objects.filter(
         creator_id=request.user.id)
     return render(request, 'profile/base.html', {'campaigns': current_user_campaigns, 'donations': False})
 
-@login_required
+
+@login_required(login_url='/auth/login/')
 def edit(request):
     if request.method == "GET":
         current_user = request.user
@@ -28,7 +29,8 @@ def edit(request):
             return redirect('user_profile')
         return render(request, 'user/edit.html', {'current_user': current_user, 'form': form})
 
-@login_required
+
+@login_required(login_url='/auth/login/')
 def delete(request):
     request.user.delete()
     return redirect('logout')

@@ -28,6 +28,7 @@ urlpatterns = [
 
     path('user/', include('users.urls')),
     path('api/', include('api.urls')),
+    path('social-auth/', include('social_django.urls', namespace="social")),
 ]
 
 urlpatterns = urlpatterns + \
