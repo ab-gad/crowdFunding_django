@@ -23,7 +23,10 @@ urlpatterns = [
         name='password_reset'),
      # Email sent display message
     path('password_reset/done/', dj_auth_views.PasswordResetDoneView.as_view(template_name='authen/password/reset_done.html'),
-         name='password_reset_done'),   
+         name='password_reset_done'),
+    # password reset successfully message
+    path('reset/complete/', dj_auth_views.PasswordResetCompleteView.as_view(template_name='authen/password/reset_complete.html'),
+         name='password_reset_complete'),        
 ]     
 
     
