@@ -12,6 +12,7 @@ def profile(request):
         creator_id=request.user.id)
     return render(request, 'profile/base.html', {'campaigns': current_user_campaigns, 'donations': False})
 
+
 @login_required(login_url='/auth/login/')
 def edit(request):
     if request.method == "GET":
@@ -27,6 +28,7 @@ def edit(request):
             profile.save()
             return redirect('user_profile')
         return render(request, 'user/edit.html', {'current_user': current_user, 'form': form})
+
 
 @login_required(login_url='/auth/login/')
 def delete(request):

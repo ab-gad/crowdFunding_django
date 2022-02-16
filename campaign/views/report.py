@@ -22,6 +22,6 @@ def campaign_report(request, campaign_id):
 
     return redirect('campaign_show', campaign_id)
 
-
+#spam
 def is_spam(user, campaign):
     return (CampaignReport.objects.filter(reporter_id=user, campaign_id=campaign).count() >= 3)

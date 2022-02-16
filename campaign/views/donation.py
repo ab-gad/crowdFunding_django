@@ -39,7 +39,7 @@ def apply_donation(campaign, user, amount):
         prev_donations[0].amount += int(amount)
         prev_donations[0].save()
 
-    # first time
+    # f - time 
     else:
         Donation.objects.create(
             amount=amount, campaign_id=campaign.id, donator_id=user.id)
