@@ -17,7 +17,7 @@
                         {% for campaign in campaigns %}
                             <div class="ml-5 col-3 card card-stats mb-4 mb-xl-4 text-center h-100 w-100 bg-light shadow">
                                 <h3 class="card-header">{{campaign.title}}</h3>
-                                <!-- <img class="card-img-top" src="{{ campaign.images.first.path.url }}" alt="Campaign image"> -->
+                                <img class="card-img-top " src="{{ campaign.images.first.path.url }}" alt="Campaign image">
                                 <div class="card-body">
                                     <h5>category : {{campaign.category}} </h5>
                                     <h5>Target: {{campaign.target}} </h5>

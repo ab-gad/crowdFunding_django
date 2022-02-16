@@ -51,6 +51,17 @@
                 </tr>
 
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                    {% if request.user.is_authenticated %}
+                        <a class="btn btn-primary w-100 m-auto " href="{% url 'campaign_show' highest_project.id %}"> Donate </a>
+                    {% else %}
+                        <a class="btn btn-primary w-100 m-auto " href="{%url 'login' %}"> Donate </a>
+                    {% endif %}                        
+                    </td>
+                </tr>
+            </tfoot>
           </table>
 
 {% endblock %}
