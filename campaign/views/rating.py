@@ -35,4 +35,4 @@ def apply_rating(campaign, user, rate):
     # first time
     else:
         Rating.objects.create(
-            value=rate, campaign_id=campaign.id, user_id=user .id)
+            value=rate, campaign_id=campaign.id, user_id=user.id)
