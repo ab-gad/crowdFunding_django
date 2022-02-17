@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
 highest_5_projects = Rating.objects.all().order_by('-value')[:5]
+
 categories = Category.objects.all()
 
 def home (request):

@@ -17,69 +17,28 @@
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>         
             </div>     
 
-            <div class="carousel-inner">              
-              <div class="carousel-item active" data-bs-interval="3000" >
-                <img src=" {% static 'images/s3.jpg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-light text-capitalize" > {{ highest_5_projects.0.campaign }} </h2>
-                    <p> {{ highest_5_projects.0.campaign.details }}  </p>
-                    
-                    {% if request.user.is_authenticated %}
-                      <a class="btn btn-success text-light" href="{% url 'campaign_show' highest_5_projects.0.campaign.id %}"> Donate </a>
-                    {% else %}
-                      <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
-                    {% endif %}                       
+            <div class="carousel-inner">
+              {% for p in highest_5_projects %}
+                {% if highest_5_projects.0 == p %}
+                  <div class="carousel-item active " data-bs-interval="3000" >
+                {% else %}
+                  <div class="carousel-item" data-bs-interval="3000" >
+                {% endif %}
+                  <img src=" {% static 'images/s3.jpg' %}" class="d-block img" alt="photo">
+                  <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
+                      <h2 class="text-light text-capitalize" > {{ p.campaign }} </h2>
+                      <p> {{ p.campaign.details }}  </p>
+                      
+                      {% if request.user.is_authenticated %}
+                        <a class="btn btn-success text-light" href="{% url 'campaign_show' p.campaign.id %}"> Donate </a>
+                      {% else %}
+                        <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
+                      {% endif %}                       
+                  </div>
                 </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000" >
-                <img src="{% static 'images/s3.jpg' %}"  class="d-block img" alt="photo">
-                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-light text-capitalize" > {{ highest_5_projects.1.campaign }} </h2>
-                    <p> {{ highest_5_projects.1.campaign.details }}  </p>
-                    
-                    {% if request.user.is_authenticated %}
-                    <a class="btn btn-success text-light" href="{% url 'campaign_show' highest_5_projects.1.campaign.id%}"> Donate </a>
-                  {% else %}
-                    <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
-                  {% endif %}   
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000" >
-                <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-light text-capitalize"> {{ highest_5_projects.2.campaign }} </h2>
-                    <p> {{ highest_5_projects.2.campaign.details }} </p>
-                    {% if request.user.is_authenticated %}
-                      <a class="btn btn-success text-light" href="{% url 'campaign_show' highest_5_projects.2.campaign.id%}"> Donate </a>
-                    {% else %}
-                      <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
-                    {% endif %} 
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000" >
-                <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-light"> {{ highest_5_projects.3.campaign }} </h2>
-                    <p> {{ highest_5_projects.3.campaign.details }} </p>
-                    {% if request.user.is_authenticated %}
-                      <a class="btn btn-success text-light" href="{% url 'campaign_show' highest_5_projects.3.campaign.id%}"> Donate </a>
-                    {% else %}
-                      <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
-                    {% endif %} 
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000" >
-                <img src="{% static 'images/s2.jpeg' %}" class="d-block img" alt="photo">
-                <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                    <h2 class="text-light text-capitalize"> {{ highest_5_projects.4.campaign }} </h2>
-                    <p> {{ highest_5_projects.4.campaign.details }} </p>
-                    {% if request.user.is_authenticated %}
-                      <a class="btn btn-success text-light" href="{% url 'campaign_show' highest_5_projects.4.campaign.id%}"> Donate </a>
-                    {% else %}
-                      <a class="btn btn-success text-light " href="{%url 'login' %}"> Donate </a>
-                    {% endif %} 
-                </div>
-              </div>
+              {% endfor %}
+
+              
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
