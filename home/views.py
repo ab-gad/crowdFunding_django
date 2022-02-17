@@ -1,8 +1,7 @@
-from unicodedata import category
+# from unicodedata import category
 from django.shortcuts import render 
-from campaign.models import Campaign , Category , Rating ,CampaignImage
+from campaign.models import Campaign , Category , Rating 
 from django.shortcuts import redirect
-from taggit.models import Tag
 
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
@@ -43,11 +42,9 @@ def category(request, categoty_id):
         if request.method == "GET":
             campaigns = Campaign.objects.filter(category=categoty_id)
             camplen = len(campaigns)
-            # img = CampaignImage.objects.filter(id=categoty_id)
         return render(request, 'category.html', { 'campaigns': campaigns,
                                                   'category': categories,
                                                   'camplen':camplen,
-                                                #   'img':img
                                                 })
     
     except:
