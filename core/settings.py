@@ -53,6 +53,7 @@ INSTALLED_APPS = [
   
     'rest_framework',
     'social_django',
+
 ]
 
 MIDDLEWARE = [
@@ -193,3 +194,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = SOCIAL_AUTH_FACEBOOK_SECRET  # App Secret
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email',
+]

@@ -13,7 +13,7 @@ from ..forms import CampaignForm, ImageForm
 @login_required
 def create_campaign(request):
     categories = Category.objects.all()
-    ImageFormSet = modelformset_factory(CampaignImage, form=ImageForm, extra=4)
+    ImageFormSet = modelformset_factory(CampaignImage, form=ImageForm, extra=3)
 
     if request.method == 'POST':
         form = CampaignForm(request.POST)
