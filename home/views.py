@@ -1,8 +1,7 @@
-from unicodedata import category
+# from unicodedata import category 
 from django.shortcuts import render 
-from campaign.models import Campaign , Category , Rating
-from django.shortcuts import redirect
-from taggit.models import Tag
+from campaign.models import Campaign , Category , Rating 
+from django.shortcuts import redirect 
 
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
@@ -14,7 +13,7 @@ def home (request):
     return render(request , 'home.html' , { 'category' : categories ,
                                             'last_5_projects':last_5_projects ,
                                             'highest_5_projects':highest_5_projects,
-                                            'length':length
+                                            'length':length,
                                           })
 
 def error (request):
@@ -45,7 +44,7 @@ def category(request, categoty_id):
             camplen = len(campaigns)
         return render(request, 'category.html', { 'campaigns': campaigns,
                                                   'category': categories,
-                                                  'camplen':camplen
+                                                  'camplen':camplen,
                                                 })
     
     except:
@@ -64,3 +63,5 @@ def highest_projects (request , project_id):
 
 def all_project (request):
     return render(request , 'all_project.html' , {'all':data })
+
+
