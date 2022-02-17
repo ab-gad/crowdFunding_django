@@ -65,5 +65,3 @@ def all_project (request):
     return render(request , 'all_project.html' , {'all':data })
 
 
-
-# http://127.0.0.1:8000/campaign/show/2
