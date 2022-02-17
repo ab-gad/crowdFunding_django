@@ -17,6 +17,7 @@
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5" style="  background-color: #b3a5a5;height: 15px;border-radius:50%;width:15px;"></button>         
             </div>     
 
+            <!-- highest 5 projects reate in slide  -->
             <div class="carousel-inner">
               {% for p in highest_5_projects %}
                 {% if highest_5_projects.0 == p %}
@@ -24,9 +25,11 @@
                 {% else %}
                   <div class="carousel-item" data-bs-interval="3000" >
                 {% endif %}
-                  <img src=" {% static 'images/s3.jpg' %}" class="d-block img" alt="photo">
+
+                  <!-- relation from models line 113 in CampaignImage table -->
+                  <img src=" {{ p.campaign.images.first.path.url  }}" class="d-block img" alt="photo">
                   <div class="carousel-caption p-3 d-none d-md-block text-light rounded" style="background-color:#0000009a;bottom:50%;transform:translatey(50%);">
-                      <h2 class="text-light text-capitalize" > {{ p.campaign }} </h2>
+                      <h2 class="text-light text-capitalize" > {{ p.campaign.title }} </h2>
                       <p> {{ p.campaign.details }}  </p>
                       
                       {% if request.user.is_authenticated %}
@@ -41,11 +44,9 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
             </button>
           </div>
 
@@ -53,6 +54,7 @@
           Total <span class="text-danger"> {{ length }} </span> Projects 
         </div>
 
+        <!-- last 5 projects -->
         <div class="d-flex m-5 flex-wrap justify-content-center">
             {% for project in last_5_projects %}
 
@@ -65,7 +67,6 @@
                             <a href="{% url 'highest_projects' project.id %}" class="btn btn-primary m-auto">Show Project</a>
                         </div>
                     </div> 
-
             {% endfor %}
         </div>
 
