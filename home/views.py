@@ -1,7 +1,7 @@
-# from unicodedata import category
+# from unicodedata import category 
 from django.shortcuts import render 
 from campaign.models import Campaign , Category , Rating 
-from django.shortcuts import redirect
+from django.shortcuts import redirect 
 
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
