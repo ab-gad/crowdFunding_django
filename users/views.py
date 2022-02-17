@@ -12,6 +12,14 @@ def profile(request):
         creator_id=request.user.id)
     return render(request, 'profile/base.html', {'campaigns': current_user_campaigns, 'donations': False})
 
+@login_required
+def donations(request):
+    current_user_donations = Donation.objects.filter(
+        donator_id=request.user.id)
+    campaigns = Campaign.objects.all()
+    return render(request, 'profile/base.html', {'current_user_donations': current_user_donations,
+                                                 'campaigns': campaigns, 'donations': True})
+
 
 @login_required(login_url='/auth/login/')
 def edit(request):
