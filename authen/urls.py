@@ -14,7 +14,7 @@ urlpatterns = [
     # change password
     path('password_change/', dj_auth_views.PasswordChangeView.as_view(template_name='authen/password/change.html'),
          name='password_change'),
-    path('password_change/done/', dj_auth_views.PasswordChangeDoneView.as_view(),
+    path('password_change/done/', dj_auth_views.PasswordChangeDoneView.as_view(template_name='authen/password/change_done.html'),
          name='password_change_done'),
     # Reset password form
     path('password_reset/', dj_auth_views.PasswordResetView.as_view(template_name='authen/password/reset_form.html',
