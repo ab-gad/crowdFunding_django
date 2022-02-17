@@ -10,7 +10,7 @@ from ..models import Campaign, Donation
 
 @login_required
 def donate(request, campaign_id):
-
+    
     campaign = get_object_or_404(Campaign, pk=campaign_id)
     context = {"campaign": campaign}
 
@@ -20,6 +20,7 @@ def donate(request, campaign_id):
         # validate
         if amount and amount.isnumeric():
             if campaign.end_date > timezone.now():
+                print(request.user)
                 apply_donation(campaign, request.user, amount)
             return redirect('campaign_show', campaign_id)
 
@@ -35,7 +36,6 @@ def apply_donation(campaign, user, amount):
 
     # has donated for this campaign before
     if prev_donations:
-
         prev_donations[0].amount += int(amount)
         prev_donations[0].save()
 

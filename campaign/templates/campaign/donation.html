@@ -30,5 +30,15 @@
 
 
 </form>
+
+{% if messages %}
+<ul class="messages" >
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
 
