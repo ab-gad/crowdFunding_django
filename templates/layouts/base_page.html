@@ -37,9 +37,7 @@
                     <form method="post" action="{% url 'search_page' %}" class="d-flex" >
                         {% csrf_token %}
                         <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit"> 
-                            <a href="{% url 'search_page' %}" class="text-light"> Search </a>
-                        </button>
+                        <input value="search" class="btn btn-outline-success" type="submit" /> 
                     </form> 
 
        

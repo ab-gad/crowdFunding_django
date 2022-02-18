@@ -6,18 +6,26 @@
     {% include 'includes/sidenav-categories.html' %}
     <div class="text-center mx-auto my-5 w-50  rounded">
 
-        {% if search %}  
+        {% if search or tags %}  
             <ul>
                 {% for project in search %}
                     <a href="{% url 'highest_projects' project.id %}" >
                         <li class="list-group-item bg-light text-primary text-start m-4">
                             <p class="text-success"> Title :    <span class="text-dark"> {{ project.title }}    </span></p>
                             <p class="text-success"> Category : <span class="text-dark"> {{ project.category }} </span></p>
-                            <p class="text-success"> Target :   <span class="text-dark"> {{ project.target }}   </span></p>         
+                            <p class="text-success"> Target :   <span class="text-dark"> {{ project.target }}   </span></p> 
                         </li>
                     </a>
+                    <!-- project.target  -->
                 {% endfor %}
             </ul>
+            <div class=" text-center">
+
+                <!-- search by tags -->
+                {% for tag in tags %}
+                    <span class="badge bg-info ">{{ tag }}</span>
+                {% endfor %}
+            </div>
         {% else %}
             <ul>
                 <li class="list-group-item bg-light"> {{ msg }} </li>

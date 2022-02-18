@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from campaign.models import Campaign, Category, Rating ,CampaignImage
+from urllib import request
+from django.shortcuts import render 
+from taggit.models import TaggedItem
+from campaign.models import Campaign, Category, Rating 
 from django.shortcuts import redirect
 
 data = Campaign.objects.all()
@@ -9,12 +11,13 @@ categories = Category.objects.all()
 
 def home(request):
     length = len(data)
+    features_projects = Campaign.objects.filter(is_featured='t')  
     return render(request, 'home.html', {'category': categories,
                                          'last_5_projects': last_5_projects,
                                          'highest_5_projects': highest_5_projects,
                                          'length': length,
-                                         })
-
+                                         'features_projects':features_projects,
+                                        })
 
 def error(request):
     return render(request, '404.html')
@@ -23,11 +26,12 @@ def search(request):
     try:
         if request.method == 'POST' and request.POST['search']:
             search = request.POST['search']
-
+            tags = Campaign.tags.filter(name__contains = search)
             projects = Campaign.objects.filter(title__contains=search)
-            if projects:
+            if projects or tags:
                 return render(request, 'search_page.html', { 'search': projects,
                                                              'category': categories,
+                                                             'tags':tags,
                                                             })
             else:
                 return render(request, 'search_page.html', { 'msg': 'No Result',
@@ -38,7 +42,8 @@ def search(request):
                                                          'category': categories,
                                                         })
     except:
-        return redirect(error)
+        # return redirect(error)
+        pass
 
 
 def category(request, categoty_id):
