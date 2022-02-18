@@ -26,14 +26,17 @@ def search(request):
 
             projects = Campaign.objects.filter(title__contains=search)
             if projects:
-                return render(request, 'search_page.html', {'search': projects,
-                                                            'name': data,
-                                                            'category': categories
+                return render(request, 'search_page.html', { 'search': projects,
+                                                             'category': categories,
                                                             })
             else:
-                return render(request, 'search_page.html', {'msg': 'No Result', 'name': data, "category": categories})
+                return render(request, 'search_page.html', { 'msg': 'No Result',
+                                                             'category': categories,
+                                                            })
         else:
-            return render(request, 'search_page.html', {'msg': 'No Result', 'name': data, "category": categories})
+            return render(request, 'search_page.html', { 'msg': 'No Result' ,
+                                                         'category': categories,
+                                                        })
     except:
         return redirect(error)
 
