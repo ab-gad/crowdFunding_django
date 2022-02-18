@@ -53,8 +53,24 @@
         <div class="alert alert-primary mt-3 m-auto w-50 h1 text-center" role="alert">
           Total <span class="text-danger"> {{ length }} </span> Projects 
         </div>
+        
+        <!-- 5 features projects from admin -->
+        <h3 class="text-center m-5 p-3 bg-info rounded"> Projects Admin Features</h3>
+        <div class="d-flex m-5 flex-wrap justify-content-center">
+          {% for project in features_projects %}
+            <div class="card m-2 my-4 shadow " style="width:17rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text text-muted"> {{ project.category }} </p> 
+                    <p class="card-text"> {{ project.details }} </p>
+                    <a href="{% url 'highest_projects' project.id %}" class="btn btn-primary m-auto">Show Project</a>
+                </div>
+            </div> 
+          {% endfor %}
+        </div>
 
         <!-- last 5 projects -->
+        <h3 class="text-center m-5 p-3 bg-info rounded">Last 5 Projects</h3>
         <div class="d-flex m-5 flex-wrap justify-content-center">
             {% for project in last_5_projects %}
 
