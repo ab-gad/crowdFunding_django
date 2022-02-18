@@ -3,14 +3,16 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from ..models import Campaign, CampaignReport
+from django.contrib import messages
+
 
 
 @login_required
 def campaign_report(request, campaign_id):
 
     if request.method == "POST":
-        campaign = get_object_or_404(Campaign, pk=campaign_id)
-        context = {"campaign": campaign}
+        # campaign = get_object_or_404(Campaign, pk=campaign_id)
+        # context = {"campaign": campaign}
 
         details = request.POST.get('details', '')
         subject = request.POST.get('subject', '')
@@ -19,6 +21,9 @@ def campaign_report(request, campaign_id):
 
             CampaignReport.objects.create(
                 details=details, campaign_id=campaign_id, reporter_id=request.user.id)
+        # else:
+        #     print("error")
+        #     messages.error(request, 'Invalid amount')
 
     return redirect('campaign_show', campaign_id)
 
