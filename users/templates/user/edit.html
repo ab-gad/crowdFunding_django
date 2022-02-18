@@ -19,9 +19,9 @@
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
-                <!-- <div class="col-4">
-                    <a href="{ % url 'password_change'%}" class="btn btn-primary" role="button" for="id_password"> Change Password</a>
-                </div> -->
+                <div class="col-4">
+                    <a href="{% url 'password_change'%}" class="btn btn-primary" role="button" for="id_password"> Change Password</a>
+                </div>
                 <div class="col-4 mb-6">
                   <div class="card-profile-image">
                     <img src="..{{current_user.avatar.url}}" width="50" height="50" class="rounded-circle">
