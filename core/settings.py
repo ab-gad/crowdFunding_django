@@ -161,7 +161,7 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'users.User'
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # development only
 
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 
@@ -194,6 +194,3 @@ SOCIAL_AUTH_FACEBOOK_SECRET = SOCIAL_AUTH_FACEBOOK_SECRET  # App Secret
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = [
-    'email',
-]

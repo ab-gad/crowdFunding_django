@@ -7,7 +7,7 @@
           <div class="card-body">
             <h5 class="card-title cut-text">{{campaign.title}}</h5>
             <p class="card-text cut-text">{{campaign.details}}</p>
-            <!-- <a href="{ %url 'campaign_show' campaign.id%}" class="btn btn-primary">More details</a> -->
+            <a href="{% url 'campaign_show' campaign.id %}" class="btn btn-primary">More details</a>
           </div>
         </div>
       </div>
