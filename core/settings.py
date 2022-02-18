@@ -161,7 +161,7 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'users.User'
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # development only
 
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 
