@@ -21,9 +21,9 @@ def campaign_report(request, campaign_id):
 
             CampaignReport.objects.create(
                 details=details, campaign_id=campaign_id, reporter_id=request.user.id)
-        # else:
-        #     print("error")
-        #     messages.error(request, 'Invalid amount')
+        else:
+            print("error")
+            messages.error(request, 'Can not sent more that 3 report')
 
     return redirect('campaign_show', campaign_id)
 

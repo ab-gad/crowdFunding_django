@@ -85,8 +85,8 @@
             <div class="rating">
                 <svg viewBox="0 0 1000 200" class="rating">
                     <defs>
-                        <polygon id="star"
-                            points="100,0 131,66 200,76 150,128 162,200 100,166 38,200 50,128 0,76 69,66 " />
+                        <polygon id="star" points="100,0 131,66 200,76 150,128 162,200 100,166 38,200 50,
+                            128 0,76 69,66 " />
 
                         <clipPath id="stars">
                             <use xlink:href="#star" />
@@ -105,7 +105,7 @@
 
             {% if date_validation == True %}
             <div class="text-center">
-                
+
                 <a class="btn btn-lg btn-success" href="{% url 'campaign_donate' campaign_info.id %}"
                     role="button">Donate now</a>
 
@@ -113,7 +113,17 @@
                     data-bs-target="#exampleModal">
                     Report
                 </button>
+                {% if messages %}
+                <ul class="messages" >
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    </div>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             </div>
+            
             {% endif %}
             {% if donations|div:campaign_info.target < 0.25 and campaign_info.creator.id == user.id %}
             <button type="button" class="btn btn-lg btn-secondary" data-bs-toggle="modal"
@@ -162,11 +172,7 @@
                             <p class="text-center">Tell us what went wrong!</p>
                             <form method="post" action="{% url 'campaign_report' campaign_info.id %}">
                                 {% csrf_token %}
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Subject</label>
-                                    <input type="text" name="subject" class="form-control" id="subject"
-                                        placeholder="What is the report about?" required>
-                                </div>
+                              
                                 <div class="mb-3">
                                     <label for="details" class="form-label">Details</label>
                                     <textarea class="form-control" name="details" id="details" rows="3"
