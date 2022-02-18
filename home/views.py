@@ -1,14 +1,11 @@
-# from unicodedata import category 
 from django.shortcuts import render
-from campaign.models import Campaign, Category, Rating
+from campaign.models import Campaign, Category, Rating ,CampaignImage
 from django.shortcuts import redirect
 
 data = Campaign.objects.all()
 last_5_projects = data.order_by('-id')[:5]
 highest_5_projects = Rating.objects.all().order_by('-value')[:5]
-
 categories = Category.objects.all()
-
 
 def home(request):
     length = len(data)
@@ -21,7 +18,6 @@ def home(request):
 
 def error(request):
     return render(request, '404.html')
-
 
 def search(request):
     try:
