@@ -12,15 +12,15 @@ Change Password
 
           <div class="form-group">
             <label for="exampleInputEmail1">Old password</label>
-            <input type="password" name ="old_password" placeholder="Old password" class="form-control form-control-sm">
+            <input type="password" id="id_old_password" name ="old_password" placeholder="Old password" class="form-control form-control-sm">
           </div>        
           <div class="form-group">
             <label for="exampleInputEmail1">New password</label>
-            <input type="password" name="new_password1" placeholder="New password" class="form-control form-control-sm">
+            <input type="password" id="id_new_password1" name="new_password1" placeholder="New password" class="form-control form-control-sm">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Confirm password</label>
-            <input type="password" name="new_password2"  placeholder="Confirm password" class="form-control form-control-sm">
+            <input type="password" id="id_new_password2" name="new_password2"  placeholder="Confirm password" class="form-control form-control-sm">
           </div>
           <div class=" mb-3">
             {% for field in form %}
@@ -29,7 +29,7 @@ Change Password
                 {% endfor %}
             {% endfor %}
           </div>
-          <div class="d-flex justify-content-end">
+          <div class="">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
 			</form>
@@ -37,4 +37,4 @@ Change Password
 
 
 
-{% endblock content %}
+{% endblock%}
