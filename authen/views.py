@@ -81,13 +81,12 @@ def _redirect(request, url):
     else:
         return redirect(url)
 
-SECRET_KEY = 'django-insecure-$28^z=-b^#o2^77n)=zdj&1i*p&+itj2ie3=#eri-xe6w!5^1n'
 class VerifyEmail(generics.GenericAPIView):
     def get(self,request):
         token = request.GET.get('token')
         print('token',token)
         try:
-            tokenPayload =  jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+            tokenPayload =  jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
             print('tokenPayload',tokenPayload)
             user = User.objects.get(pk=tokenPayload['user_id'])
             user.is_active = True
