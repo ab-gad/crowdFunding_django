@@ -30,6 +30,9 @@ urlpatterns = [
     # Action to the link sent to email
      path('reset/<uidb64>/<token>/', dj_auth_views.PasswordResetConfirmView.as_view(),
          name='password_reset_confirm'),
+
+     #Email Verification
+     path('email_verify/', views.VerifyEmail.as_view(), name='email_verify')
 ] 
 
     

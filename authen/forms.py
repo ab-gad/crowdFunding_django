@@ -63,7 +63,7 @@ class RegisterForm (forms.ModelForm):
         user = super(RegisterForm,self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         # wait for confirmation email
-        user.is_active = True 
+        user.is_active = False 
         
         if commit:
             user.save()
