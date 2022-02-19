@@ -16,7 +16,6 @@ class RegisterForm (forms.ModelForm):
         label='Password', 
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
-        #help_text=password_validation.password_validators_help_text_html(),
     )
 
     password2 = forms.CharField(
@@ -31,13 +30,11 @@ class RegisterForm (forms.ModelForm):
         fields = ['first_name','last_name','email','phone']
 
 
-    # Validate password
+    # Validate  first password
     def clean_password1(self):
 
         password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
 
-        # Validate the password
         try:
             password_validation.validate_password(password1, self.instance)
         except forms.ValidationError as error:
@@ -61,10 +58,7 @@ class RegisterForm (forms.ModelForm):
 
         # Save the password in hashed format
         user = super(RegisterForm,self).save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
-        # wait for confirmation email
-        user.is_active = True 
-        
+        user.set_password(self.cleaned_data["password1"])        
         if commit:
             user.save()
         return user
@@ -78,5 +72,4 @@ class LoginForm (AuthenticationForm):
 
         'invalid_login':"Invalid Email or password.",
 
-        'inactive':"Please confirm your email.",
     }
