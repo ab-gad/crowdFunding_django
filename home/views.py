@@ -1,6 +1,4 @@
-from urllib import request
 from django.shortcuts import render 
-from taggit.models import TaggedItem
 from campaign.models import Campaign, Category, Rating 
 from django.shortcuts import redirect
 
@@ -26,12 +24,10 @@ def search(request):
     try:
         if request.method == 'POST' and request.POST['search']:
             search = request.POST['search']
-            tags = Campaign.tags.filter(name__contains = search)
             projects = Campaign.objects.filter(title__contains=search)
-            if projects or tags:
+            if projects :
                 return render(request, 'search_page.html', { 'search': projects,
                                                              'category': categories,
-                                                             'tags':tags,
                                                             })
             else:
                 return render(request, 'search_page.html', { 'msg': 'No Result',

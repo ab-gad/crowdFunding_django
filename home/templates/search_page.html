@@ -19,13 +19,6 @@
                     <!-- project.target  -->
                 {% endfor %}
             </ul>
-            <div class=" text-center">
-
-                <!-- search by tags -->
-                {% for tag in tags %}
-                    <span class="badge bg-info ">{{ tag }}</span>
-                {% endfor %}
-            </div>
         {% else %}
             <ul>
                 <li class="list-group-item bg-light"> {{ msg }} </li>
